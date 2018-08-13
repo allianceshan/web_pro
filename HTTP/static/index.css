@@ -22,7 +22,7 @@ html,body
 }
 .heard_div
 {
-	background: #586CF9;
+	background: #353535;
 	overflow:auto;
 
 }
@@ -35,23 +35,29 @@ html,body
 {
 	width: 350px;
 	height: 450px;
-	background-color: red;
+	background-color: #6F6E6E;
 	position: absolute;
 	right: 300px;
+	border-style: solid;
+	border-color: white;
+	border-width: 1px;
+	border-radius:5px;
+
 }
 #login_lable
 {
 	height: 40px;
-	background-color: blue;
+	background-color: #6F6E6E;
 	text-align:center;
 	font-size: 30px;
+	color: white;
 	
 }
 .user_name
 {
 	height: 35%;
 	width: 100%;
-	background-color: yellow;
+	background-color: #F8F5F5;
 }
 #input_name
 {
@@ -79,7 +85,9 @@ html,body
 {
 	width: 100px;
 	height: 40px;
-	background-color: green;
+	background-color: #353535;
+	color: white;
+	font-size: 20px;
 	position: absolute;
 	right: 10%;
 	bottom: 10%;
@@ -92,5 +100,6 @@ html,body
 	width: 100%;
 	position: absolute;
 	top: 100%;
-	background-color: white;
+	color: white;
+	background-color:#424141;
 }
