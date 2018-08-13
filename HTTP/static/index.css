@@ -13,12 +13,12 @@ html,body
 }
 .div
 {
-	zoom:1;
 	height: 100%;
 	padding: 0;
 	margin: 0;
 	overflow:hidden;
-	background-image: url(../../img/body_bkg.jpg)
+	background-image: url(./img/body_bkg.jpg)
+	
 }
 .heard_div
 {
@@ -29,7 +29,6 @@ html,body
 .body_div
 {
 	width: 100%;
-	height:auto;
 	overflow:auto;
 }
 .login_div
