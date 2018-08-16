@@ -12,9 +12,6 @@ index = 0
     
 @app.route('/')
 def hello_world():
-    #if index == 1:
-        #login_url = url_for('login')
-        #return redirect(login_url)
     return render_template('index.html')
 
 @app.route('/loginsdf/')
@@ -28,8 +25,8 @@ def artcle(id):
 
 @app.route('/login_form',methods=['GET','POST'])
 def GetUserData():
-    print("用户名： " + request.form['userName'])
-    print("密码：   " + request.form['passWord'])
-    return '用户名：' + request.form['userName'] + '  密码： ' + request.form['passWord'] 
+    print("用户名： " + request.form['recipient-name'])
+    print("密码：   " + request.form['message-text'])
+    return '用户名：' + request.form['recipient-name'] + '  密码： ' + request.form['message-text'] 
 if __name__=='__main__':
     app.run()
