@@ -1,0 +1,15 @@
+1.当前项目部署在服务器上位置为 /var/www/web_pro 如果git上有更新可以在此位置处进行拉取更新的东西 git pull
+
+2.启动这个项目可以使用python直接启动 也可以使用uwsgi命令启动，需要写配置文件，在项目的目录中可以找到
+	启动的方式如下：
+		uwsgi uconfig.ini
+		完整启动方式：
+		/usr/local/bin/uwsgi  /var/www/web_pro/HTTP/uconfig.ini
+		
+3.此项目使用supervisor进行管理：配置文件的位置在： /etc/supersor/下 对supervisord.conf进行修改
+	supervisor常用控制命令如下：
+		supervisorctl    进入控制台
+		start ***		 启动一个管理的进程
+		stop  ***        关闭正在运行的进程
+		help             查看所有命令
+		
