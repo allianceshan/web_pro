@@ -1,7 +1,7 @@
 // 按钮点击事件提交用户登录数据
 function myFunction()
 {
-	var  username = document.getElementById("recipient-name").value;		//获取输入框的值
+	var  username = document.getElementById("recipient-name").text;	//获取输入框的值
 	var  password = document.getElementById("message-text").value;    	//获取输入框的值
 	console.log(username);
 	console.log(password);
