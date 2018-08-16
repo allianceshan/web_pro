@@ -74,6 +74,7 @@
 		
       </div>
     </div>
+
 	<!-- 登录框
     ================================================== -->
 	<div class="modal fade" id="login_pan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -103,6 +104,20 @@
 		</div>
 	</div>
 	
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      </div>
+	      <div class="modal-body" id="card_div">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 	
     <!-- Carousel
     ================================================== -->
@@ -173,19 +188,19 @@
           <img class="img-circle" src="../static/img/dashan.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>大珊</h2>
           <p>各位小哥快来看一看，一个温柔善良可爱大方的小女子，来自天堂携带着风一般的个性，不张扬，恩那是假的；不傻笑，恩那也是假的，最爱的事情就是吃吃吃，忘了还有玩，梦想是永垂不老，做着喜欢的事，享受着快乐的人生.</p>
-          <p><a class="btn btn-default" href="#" role="button">点击查看 »</a></p>
+          <p><a class="btn btn-default" role="button"  onclick="getCartData('大珊')" data-toggle="modal" data-target="#myModal">点击查看 »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="../static/img/laosun.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>大珊深处</h2>
           <p>啊啊啊，恩抱歉有感而发，感触颇深的时候想去表达，小学毕业，吟不出一手好诗，对了想到了：飞流直下三千尺。。。。下一句？忘了。生活，有欢乐有开心，不应该是难过吗哈哈哈抱歉每天都很欢乐，没办法，除非投资赔钱.</p>
-          <p><a class="btn btn-default" href="#" role="button">点击查看 »</a></p>
+          <p><a class="btn btn-default" onclick="getCartData('大珊深处')"  role="button" data-toggle="modal" data-target="#myModal">点击查看 »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="../static/img/dahang.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>大航</h2>
           <p>咳咳，小哥驾到，作为一枚小猿，却习惯性的给自己扣上吃货的帽子，吃货会传染，恩对没错我就是被传染的，拿手好菜是鸡蛋炒火腿，偶尔太渴，来碗土豆烧西红柿豆角鸡蛋汤，每天做着同样的事，也努力的享受着生活。努力？是的.</p>
-          <p><a class="btn btn-default" href="#" role="button">点击查看 »</a></p>
+          <p><a class="btn btn-default" onclick="getCartData('大航')"  role="button" data-toggle="modal" data-target="#myModal">点击查看 »</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 

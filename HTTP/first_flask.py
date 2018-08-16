@@ -9,10 +9,19 @@ import config
 app = Flask(__name__)
 app.config.from_object(config)
 index = 0
-    
+admin_data = {'大航':"这是服务器上大航的数据",'大珊':'这是服务器上大珊的数据','大珊深处':'这个是我们合照的数据'}
 @app.route('/')
 def hello_world():
     return render_template('index.html')
+@app.route('/somedata')
+def somedata():
+    if request.method=="GET":
+        ar = request.args.to_dict()
+
+        values = admin_data[ar['name']]
+        print(values)
+        return "数据" + values
+    #return send_from_directory('static',filename='123.txt',as_attachment=True)
 
 @app.route('/regest/')
 def regest():
