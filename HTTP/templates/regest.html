@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">
+
+    <title>注册您的账号</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/Carousel Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../static/Carousel Template for Bootstrap_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../static/Carousel Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="../static/Carousel Template for Bootstrap_files/carousel.css" rel="stylesheet">
+    <!-- 自定义事件 -->
+    <script src="../static/JS/login.js"></script>
+
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+        <div class="jumbotron">
+          <div class="jumbotron">
+            <div class="jumbotron">
+                <div class="jumbotron">
+                  <h2 left="50%" class="h2Class">注册您的账号信息</h1>
+                  <style type="text/css">
+                    .h2Class
+                    {
+                      text-align:center
+                    }
+                  </style>
+                </div>
+                <form method="POST" action="{{ url_for('RegestUserData') }}">
+                  <div class="form-group">
+                    <label for="exampleInputUser">用户名：</label>
+                    <input type="text" class="form-control" id="exampleInputUser" name="exampleInputUser" placeholder="请输入用户名">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">密码：</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name= "exampleInputPassword1" placeholder="密码至少6位包含小写字母">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">邮箱：</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" placeholder="请输入邮箱邮箱">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputQQ">QQ号：</label>
+                    <input type="text" class="form-control" id="exampleInputQQ" name="exampleInputQQ" placeholder="请输入您的QQ号">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">头像上传：</label>
+                    <input type="file" id="exampleInputFile">
+                  </div>
+                  <div class="form-group">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
+                    </label>
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- /END THE FEATURETTES -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/Carousel Template for Bootstrap_files/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../static/Carousel Template for Bootstrap_files/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../static/Carousel Template for Bootstrap_files/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/Carousel Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
