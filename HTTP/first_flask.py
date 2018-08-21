@@ -6,6 +6,7 @@ from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired
 import wtforms.validators
 import config
+import people
 app = Flask(__name__)
 app.config.from_object(config)
 index = 0
@@ -44,7 +45,15 @@ def RegestUserData():
     print('密码： ' + request.form['exampleInputPassword1'])
     print("邮箱 "+ request.form['exampleInputEmail1'])
     print("QQ号" + request.form["exampleInputQQ"])
-    return "注册成功"
+    user = people.User()
+    user.Phone    = request.form['exampleInputPhone']
+    user.UserName = request.form['exampleInputUser']
+    user.Password = request.form['exampleInputPassword1']
+    user.UserEmal = request.form['exampleInputEmail1']
+    user.QQNumber = request.form['exampleInputQQ']
+    user.Sex      = request.form['inlineRadioOptions']
+    result =  user.insertUserData()
+    return result
     
 if __name__=='__main__':
     app.run()
