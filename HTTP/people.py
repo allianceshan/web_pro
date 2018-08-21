@@ -1,11 +1,13 @@
 # -*- coding: UTF-8 -*-
 import os 
 import sqlite3
+import config
 from flask import Flask,request,session,g,redirect,url_for,abort,render_template,flash
 from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
+app.config.from_object(config)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@allianceshan.top:3306/xuhang'
 app.config["SQLALCHEMY_COMMIT_ON_TEARDOWN"]=True        #配置请求后自动提交
 db = SQLAlchemy(app)

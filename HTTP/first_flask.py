@@ -5,10 +5,8 @@ import requests
 from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired
 import wtforms.validators
-import config
-import people
-app = Flask(__name__)
-app.config.from_object(config)
+import people 
+from people import app
 index = 0
 admin_data = {'大航':"这是服务器上大航的数据",'大珊':'这是服务器上大珊的数据','大珊深处':'这个是我们合照的数据'}
 @app.route('/')
