@@ -22,6 +22,7 @@ class User(db.Model):
     Sex      = db.Column(db.Integer,nullable=False)
     UserName = db.Column(db.String(18))
     UserEmal = db.Column(db.String(17),nullable=False)
+    Password = db.Column(db.String(24),nullable=False)
 
     def __init__(self, Phone='',QQNumber='',Sex=1):
         self.Phone = Phone
