@@ -45,15 +45,16 @@ def RegestUserData():
     print('密码： ' + request.form['exampleInputPassword1'])
     print("邮箱 "+ request.form['exampleInputEmail1'])
     print("QQ号" + request.form["exampleInputQQ"])
+    print("性别：" + request.form['inlineRadioOptions'])
     user = people.User()
     user.Phone    = request.form['exampleInputPhone']
     user.UserName = request.form['exampleInputUser']
     user.Password = request.form['exampleInputPassword1']
     user.UserEmal = request.form['exampleInputEmail1']
     user.QQNumber = request.form['exampleInputQQ']
-    user.Sex      = request.form['inlineRadioOptions']
+    user.Sex      = 1#request.form['inlineRadioOptions']
     result =  user.insertUserData()
     return result
     
 if __name__=='__main__':
-    app.run()
+    app.run(port=80)
