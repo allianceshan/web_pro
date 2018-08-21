@@ -8,6 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config.from_object(config)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@allianceshan.top:3306/xuhang'
 app.config["SQLALCHEMY_COMMIT_ON_TEARDOWN"]=True        #配置请求后自动提交
 db = SQLAlchemy(app)
