@@ -28,6 +28,8 @@ class User(db.Model):
         self.Phone = Phone
         self.QQNumber = QQNumber
         self.Sex = Sex
+        self.UserEmal = ''
+        self.UserName = ''
         
     def __repr__(self):
         return '<User %r>' % self.username
@@ -46,7 +48,23 @@ class User(db.Model):
         db.session.add(self)
         db.session.commit()    
         return '注册成功'
-    
+    def selectUserData(self):
+        if len(self.Phone) !=11 and self.UserName == '' and len(self.UserEmal) == 0: 
+            return '登录失败'
+        if len(self.Password) < 6:
+            return '密码格式错误'
+        if len(self.Phone) == 11 and  len(self.Password) >=6:
+            check_user = User.query.filter_by(Phone = self.Phone,Password = self.Password).first()
+            if check_user != None:
+                return '登录成功'
+            return '登录失败'
+        print(self.UserEmal)
+        
+        if len(self.UserEmal) > 0 and len(self.Password) <6:
+            check_user = User.query.filter_by(Phone = self.Phone,Password = self.Password).first()
+            if check_user != None:
+                return '登录成功'
+            return '登录失败'
 #if __name__=='__main__':
     ##db.create_all()
     #users = User()

@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+import re
 from flask import Flask,url_for,redirect,render_template,request
 from flask_wtf import Form
 import requests
@@ -35,8 +36,18 @@ def artcle(id):
 def GetUserData():
     print("用户名： " + request.form['recipient-name'])
     print("密码：   " + request.form['message-text'])
-    return '用户名：' + request.form['recipient-name'] + '  密码： ' + request.form['message-text'] 
+    user = people.User()
+    datas = request.form['recipient-name']
+    user.Password = request.form['message-text']
+    if len(user.Password) < 6:
+        return '密码小于6位'
+    if re.match("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$", datas) != None:
+        user.UserEmal = datas
+    if len(datas) == 11:
+        user.Phone = datas
+    return user.selectUserData()
 
+    #return '用户名：' + request.form['recipient-name'] + '  密码： ' + request.form['message-text'] 
 @app.route('/regest',methods=['POST'])
 def RegestUserData():
     print("用户名：" + request.form['exampleInputUser'])
@@ -54,7 +65,7 @@ def RegestUserData():
     result =  user.insertUserData()
     print("注册返回值：" + result);
     if result != '注册成功':
-        return render_template('regest.html',result)
+        return render_template('regest.html',result=result)
     return render_template('index.html')
     
 if __name__=='__main__':

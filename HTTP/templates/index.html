@@ -58,7 +58,7 @@
               </ul>
 			  <div margin-right="10px" class="div_box" >
 				  <div class="navbar-nav navbar-right" background-color="red">
-						<button type="button" class="btn btn-primary navbar-btn " id="div_box" data-toggle="modal" data-target="#login_pan">登录</button>
+						<button type="button" class="btn btn-primary navbar-btn " id="div_box" data-toggle="modal" data-target="#login_pan" onclick="login_load()">登录</button>
 						<style>
 							#div_box{margin-right:30px;overflow:hidden;}
 						</style>
@@ -98,6 +98,17 @@
 				</div>
 				<div class="modal-footer">
 					<a class="navbar-left" href="{{ url_for('regest') }}">还没有账号?点击注册</a>
+          <label id = "login_error_message"></label>  
+          <style type="text/css">
+            #login_error_message
+            {
+              color: red;
+            }
+            .login_err_div
+            {
+              text-align: center;
+            }
+          </style>
 					<button type="submit" class="btn btn-primary"   onclick="myFunction()">登录</button>
 				</div>
 			</div>
