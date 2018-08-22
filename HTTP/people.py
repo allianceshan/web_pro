@@ -61,16 +61,23 @@ class User(db.Model):
             if check_user != None:
                 userdata['msg'] = '登录成功'
                 userdata['userName'] = check_user.UserName
-                print(userdata)   
+                print(userdata)
+                return userdata
             else:
                 userdata['msg'] = '登录失败'
-            return  userdata
+                userdata['error']='手机号或者密码错误'
+                return  userdata
         elif len(self.UserEmal) > 0 and len(self.Password) <6:
             check_user = User.query.filter_by(Phone = self.Phone,Password = self.Password).first()
             if check_user != None:
                 userdata['msg'] = '登录成功'
                 userdata['userName'] = check_user.UserName
-            return userdata
+                return userdata
+            else:
+                userdata['msg'] = '登录失败'
+                userdata['error']='邮箱或密码错误'
+                return userdata
+        return userdata
 #if __name__=='__main__':
     ##db.create_all()
     #users = User()
