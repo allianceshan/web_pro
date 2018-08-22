@@ -34,15 +34,18 @@ class User(db.Model):
     def insertUserData(self):
         check_user = User.query.filter_by(Phone = self.Phone).first()
         if check_user != None:
-            return 'Have Regist!'
+            return '手机号已被注册!'
         if len(self.Phone) != 11:
-            return 'Phone is too small!'
+            return '手机号格式不对!'
+        if self.Password == '' or self.Password ==' ' or len(self.Password) <6:
+            return '密码为空或少于6位'
         if self.Sex != 1 and self.Sex != 0:
-            return 'Sex Error!'
+            return '性别错误!'
         if len(self.UserEmal) == 0:
-            return 'Emal is null!'
+            return '邮箱不能为空!'
         db.session.add(self)
-        db.session.commit()        
+        db.session.commit()    
+        return '注册成功'
     
 #if __name__=='__main__':
     ##db.create_all()

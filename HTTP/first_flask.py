@@ -24,7 +24,7 @@ def somedata():
 
 @app.route('/regest/')
 def regest():
-    return render_template('regest.html')
+    return render_template('regest.html',result='')
 
 #设置请求参数 参数放在尖括号中
 @app.route('/artcle/<id>')
@@ -50,9 +50,12 @@ def RegestUserData():
     user.Password = request.form['exampleInputPassword1']
     user.UserEmal = request.form['exampleInputEmail1']
     user.QQNumber = request.form['exampleInputQQ']
-    user.Sex      = 1#request.form['inlineRadioOptions']
+    user.Sex      = int(request.form['inlineRadioOptions'])
     result =  user.insertUserData()
-    return result
+    print("注册返回值：" + result);
+    if result != '注册成功':
+        return render_template('regest.html',result)
+    return render_template('index.html')
     
 if __name__=='__main__':
     app.run(port=80)
