@@ -45,11 +45,9 @@ def GetUserData():
         user.UserEmal = datas
     if len(datas) == 11:
         user.Phone = datas
-    check_user = user.selectUserData()
-    if check_user == '登录成功':
-        return render_template('index.html')
-    else:
+        check_user = user.selectUserData()
         return check_user
+
 
     #return '用户名：' + request.form['recipient-name'] + '  密码： ' + request.form['message-text'] 
 @app.route('/regest',methods=['POST'])
@@ -71,6 +69,5 @@ def RegestUserData():
     if result != '注册成功':
         return render_template('regest.html',result=result)
     return render_template('index.html')
-    
 if __name__=='__main__':
     app.run(port=80)

@@ -49,22 +49,28 @@ class User(db.Model):
         db.session.commit()    
         return '注册成功'
     def selectUserData(self):
+        userdata = {}
         if len(self.Phone) !=11 and self.UserName == '' and len(self.UserEmal) == 0: 
-            return '登录失败'
-        if len(self.Password) < 6:
-            return '密码格式错误'
-        if len(self.Phone) == 11 and  len(self.Password) >=6:
+            userdata['msg'] = '登录失败'
+            userdata['error']='未填写手机号或邮箱信息'
+        elif len(self.Password) < 6:
+            userdata['msg'] = '登录失败'
+            userdata['error']='密码格式错误'            
+        elif len(self.Phone) == 11 and  len(self.Password) >=6:
             check_user = User.query.filter_by(Phone = self.Phone,Password = self.Password).first()
             if check_user != None:
-                return '登录成功'
-            return '登录失败'
-        print(self.UserEmal)
-        
-        if len(self.UserEmal) > 0 and len(self.Password) <6:
+                userdata['msg'] = '登录成功'
+                userdata['userName'] = check_user.UserName
+                print(userdata)   
+            else:
+                userdata['msg'] = '登录失败'
+            return  userdata
+        elif len(self.UserEmal) > 0 and len(self.Password) <6:
             check_user = User.query.filter_by(Phone = self.Phone,Password = self.Password).first()
             if check_user != None:
-                return '登录成功'
-            return '登录失败'
+                userdata['msg'] = '登录成功'
+                userdata['userName'] = check_user.UserName
+            return userdata
 #if __name__=='__main__':
     ##db.create_all()
     #users = User()

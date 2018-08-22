@@ -17,7 +17,14 @@ function myFunction(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			console.log(xmlhttp.responseText);
+			console.log(xmlhttp.responseText.length);
+			// if(xmlhttp.responseText.length < 20)
 			document.getElementById("login_error_message").innerHTML=xmlhttp.responseText;
+			// else
+				// window.location.href ="/";
+				{
+					// $('#login_pan').modal('hide');									//将登录框隐藏并且更新登录按钮为注销，以及显示登录的账号用户名
+				}
 		}
 	}
 	var tohttp = "/login_form";
