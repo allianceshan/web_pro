@@ -1,5 +1,29 @@
 // 按钮点击事件提交用户登录数据
 
+function ajaxLogin()
+{
+	console.log("点击函数");
+	$("#div_edit").hide();	
+	$.post("resource.shtml", 
+	{
+		action : "delete",
+		id : id,
+		},
+		function(data)
+		{
+			var obj = new Function("return" + data)();
+			if(obj.result=="ok")  
+			{
+				location.reload();
+			}
+			else {
+				$.noty.consumeAlert(
+				{
+					layout: 'topCenter', type: 'error', dismissQueue: true});	
+					alert(obj.message);
+					}	
+				});	
+}
 
 function myFunction(){
 	var xmlhttp;
@@ -31,24 +55,26 @@ function myFunction(){
 	xmlhttp.open("POST",tohttp,true);
 	var  username = document.getElementById("recipient-name");						//获取输入框的值
 	var  password = document.getElementById("message-text");    					//获取输入框的值
-	var  error_mess = document.getElementById("login_error_message").innerHTML;    	//获取错误信息的值
+	//var  error_mess = document.getElementById("login_error_message").innerHTML;    	//获取错误信息的值
 	console.log(username.value);
 	console.log(password.value);
-	console.log(error_mess);
+	//console.log(error_mess);
 
-	document.getElementById("login_error_message").innerHTML = "";
+	//document.getElementById("login_error_message").innerHTML = "";
 	if(username.value != "" && username != " " && password.value !="" && password.value !=" ")
 	{
 		var form1 = document.form1;		
+		console.log(form1)
 		var formdata = 	new	FormData(form1);
 		console.log(formdata)
 		xmlhttp.send(formdata);
 	}
-	else
-		var login_err =  document.getElementById("login_error_message").value;
-		document.getElementById("login_error_message").innerText= "用户名或者密码错误"
-		console.log(login_err);
+	//else
+		//var login_err =  document.getElementById("login_error_message").value;
+		//document.getElementById("login_error_message").innerText= "用户名或者密码错误"
+		//console.log(login_err);
 }
+
 function myFunction1()
 {
 	var  username = document.getElementById("recipient-name");	//获取输入框的值

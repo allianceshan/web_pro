@@ -1,307 +1,52 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">
-
-    <title>珊珊来迟</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../static/Carousel Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../static/Carousel Template for Bootstrap_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../static/Carousel Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template -->
-    <link href="../static/Carousel Template for Bootstrap_files/carousel.css" rel="stylesheet">
-    <!-- 自定义事件 -->
-  	<script src="../static/JS/login.js"></script>
-
-  </head>
-<!-- NAVBAR
-================================================== -->
-  <body>
-    <div class="navbar-wrapper">
-      <div class="container">
-
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">首页图片</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">主页</a></li>
-                <li><a href="#">关于我们</a></li>
-                <li><a href="#">进入博客</a></li>
-				<li><a href="#">进入相册</a></li>
-              </ul>
-			  <div margin-right="10px" class="div_box" >
-				  <div class="navbar-nav navbar-right" background-color="red">
-            <label class="navbar-brand" id="label_show_user_name"></label>
-						<button type="button" class="btn btn-primary navbar-btn " id="div_box" data-toggle="modal" data-target="#login_pan" onclick="login_load()">
-                  登录
-            </button>
-						<style>
-							#div_box{margin-right:30px;overflow:hidden;}
-						</style>
-						
-				  </div>
-			  </div>
-            </div>
-			
-          </div>
-        </nav>
-		
-		
-		
-      </div>
-    </div>
-
-	<!-- 登录框
-    ================================================== -->
-	<div class="modal fade" id="login_pan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="exampleModalLabel">登录</h4>
-				</div>
-				<div class="modal-body">
-					<form method="POST" name="form1">
-					  <div class="form-group">
-						<label for="recipient-name" class="control-label">用户名:</label>
-						<input type="text" class="form-control" name= "recipient-name" id="recipient-name" placeholder="手机号/用户名">
-					  </div>
-					  <div class="form-group">
-						<label for="message-text" class="control-label">密码:</label>
-						<input type="password" class="form-control" name="message-text" id="message-text">
-					  </div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<a class="navbar-left" href="{{ url_for('regest') }}">还没有账号?点击注册</a>
-          <label id = "login_error_message"></label>  
-          <style type="text/css">
-            #login_error_message
-            {
-              color: red;
-            }
-            .login_err_div
-            {
-              text-align: center;
-            }
-          </style>
-					<button type="submit" class="btn btn-primary"   onclick="myFunction()">登录</button>
-				</div>
-			</div>
+<html>	
+<head>
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../static/css/style.css" rel='stylesheet' type='text/css' />
+<script src="../static/JS/login.js"></script>
+<script src="../static/JS/jquery-3.3.1.min.js"></script>
+<script src="../static/JS/jquery.form.js"></script>
+</head>
+<body>
+ <!--SIGN UP-->
+ <h1>欢 迎！</h1>
+<div class="login-form">
+	<div class="close"> </div>
+		<div class="head-info">
+			<label class="lbl-1"> </label>
+			<label class="lbl-2"> </label>
+			<label class="lbl-3"> </label>
 		</div>
+			<div class="clear"> </div>
+	<div class="avtar">
+		<img src="../static/images/avtar.png" />
 	</div>
+	<form action="login_form" method="POST" id="form1" name="form1">
+		<input type="text" class="text" id="recipient-name" name="recipient-name" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}" >
+		<div class="key">
+			<input type="password"  id="message-text" name="message-text" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+		</div>
+			
+		<div align="right" style = "height:35px;">
+		<a class="register" type="submit"  href="{{ url_for('regest') }}" >如果没有账号，请点此注册！</a>
+	</div>
+						
+	<div class="signin">
+		<input type="submit" value="Submit" onclick="ajaxLogin()" >
+	</div>
+	</form>
+							
+
+			
+			
+			
+	
 	
 
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-	      </div>
-	      <div class="modal-body" id="card_div">
-	      </div>
-	    </div>
-	  </div>
-	</div>
-
-	
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- 那四个小圆点 -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-      	<style>
-			.img-style{opacity:0.6;}
-		</style>
-        <div class="item">
-          <img class="first-slide img-style" src="../static/img/10.jpg" alt="First slide" opacity="0.4">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>踏浪而过.</h1>
-              <p>看见过许多为生活奔波的人，有的忙碌有的悠闲，有的奋进有的堕落，不管怎么样他们都在随着时间流逝着，那要问你你要怎么过，微笑着，或许是踏浪而过吧！.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">点击阅读</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item active">
-          <img class="second-slide img-style" src="../static/img/2.jpg" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>大道至简.</h1>
-              <p>很喜欢一个词就是大道至简，听起来很霸气，源于老子的道德经(没看过)，万物之始，大道至简，衍化至繁，意思是大道理往往是极其简单的，也让生活别那么复杂，简单一点.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">点击阅读</a></p>
-            </div>
-          </div>
-        </div>
-		
-        <div class="item">
-          <img class="third-slide img-style" src="../static/img/3.jpg" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>鲸落.</h1>
-              <p>摘自百度百科-指的是鲸鱼在海洋中死去尸体慢慢沉入海底，形成一个供养分解者为主的循环系统长达百年，留给大海最后的温柔，想起了化身孤岛的鲸. </p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">点击阅读</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-	  
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
+			
+</div>
 
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="../static/img/dashan.jpg" alt="Generic placeholder image" width="140" height="140">
-          <h2>大珊</h2>
-          <p>各位小哥快来看一看，一个温柔善良可爱大方的小女子，来自天堂携带着风一般的个性，不张扬，恩那是假的；不傻笑，恩那也是假的，最爱的事情就是吃吃吃，忘了还有玩，梦想是永垂不老，做着喜欢的事，享受着快乐的人生.</p>
-          <p><a class="btn btn-default" role="button"  onclick="getCartData('大珊')" data-toggle="modal" data-target="#myModal">点击查看 »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="../static/img/laosun.jpg" alt="Generic placeholder image" width="140" height="140">
-          <h2>大珊深处</h2>
-          <p>啊啊啊，恩抱歉有感而发，感触颇深的时候想去表达，小学毕业，吟不出一手好诗，对了想到了：飞流直下三千尺。。。。下一句？忘了。生活，有欢乐有开心，不应该是难过吗哈哈哈抱歉每天都很欢乐，没办法，除非投资赔钱.</p>
-          <p><a class="btn btn-default" onclick="getCartData('大珊深处')"  role="button" data-toggle="modal" data-target="#myModal">点击查看 »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="../static/img/dahang.jpg" alt="Generic placeholder image" width="140" height="140">
-          <h2>大航</h2>
-          <p>咳咳，小哥驾到，作为一枚小猿，却习惯性的给自己扣上吃货的帽子，吃货会传染，恩对没错我就是被传染的，拿手好菜是鸡蛋炒火腿，偶尔太渴，来碗土豆烧西红柿豆角鸡蛋汤，每天做着同样的事，也努力的享受着生活。努力？是的.</p>
-          <p><a class="btn btn-default" onclick="getCartData('大航')"  role="button" data-toggle="modal" data-target="#myModal">点击查看 »</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-
-      <!-- START THE FEATURETTES -->
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">那些年放肆的我们. <span class="text-muted">北京</span></h2>
-          <p class="lead">
-          	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          	北京北京，熟悉的地方，因为有熟悉的人。 <br />
-          	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          	记得曾经还说毕业以后要去上海呢，然后一想到那里大大的蚊子就再也不想去了，嘿嘿其实那也仅仅是一个理由吧，毕竟上海没有大珊呀。而且回家相对比较方便。那年，在各条线上穿插了n次，风景也是看的不少渐渐的也习惯了这里的生活.
-          	<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          	2018.08.15 @北京.
-          </p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="../static/img/happy.jpg" >
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">干了这杯雄黄酒. <span class="text-muted">艺术馆.</span></h2>
-          <p class="lead">
-          	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          	好吧，算是拍照技术最长进的一次了。 <br />
-          	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            不过这里的布局真心不错，走心了，虽说不懂艺术，但也是让人赏心悦目，每次出去玩的时候总是很开心，不用工作，没有人打扰，就连晒太阳都能让人哈哈大笑。面面相觑，咦，非洲刚回来呀，火辣辣的.
-            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            2018.08.15 @北京.
-          </p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="../static/img/happy2.jpg" >
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">某年某刻曾经的我们.<span class="text-muted">冬天不冷</span></h2>
-          <p class="lead">	
-          	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          	嗯哼，好吧记不起这是在哪里的了，不过看着四周的环境隐约觉得是冬季。<br />
-          	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      		哈哈哈，时光啊飞逝着，一转眼我们快要又一个冬天，从那时的青涩到现在的青青涩，虽说都在改变着，但有些东西还是一直没变过。致敬时光，还有致敬中北.
-      		<br />
-      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      		2018.08.15 @北京.
-      	  </p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="../static/img/happy3.jpg">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">返回顶部</a></p>
-        <p>© 2018 中国, 北京. · <a href="#">海淀</a> · <a href="#">北发大厦</a></p>
-
-    </footer></div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../static/Carousel Template for Bootstrap_files/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../static/Carousel Template for Bootstrap_files/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../static/Carousel Template for Bootstrap_files/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../static/Carousel Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
-  
-
-<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg></body></html>
+</body>
+</html>

@@ -58,6 +58,7 @@ def RegestUserData():
     print("QQ号" + request.form["exampleInputQQ"])
     print("性别：" + request.form['inlineRadioOptions'])
     user = people.User()
+    
     user.Phone    = request.form['exampleInputPhone']
     user.UserName = request.form['exampleInputUser']
     user.Password = request.form['exampleInputPassword1']
@@ -70,4 +71,4 @@ def RegestUserData():
         return render_template('regest.html',result=result)
     return render_template('index.html')
 if __name__=='__main__':
-    app.run(port=80)
+    app.run(port=8088)
